@@ -18,6 +18,20 @@ nfish = 10 #number of fish to simulate
 tmax = 365 #(days) number of timesteps in simulation, assumes sim starts on Jan 1
 states <- c("PRE","M1","M2","M3","M4","M5","M6","SS1","SS2","SS3","G1","G2","SG","D","F") #vector of states a fish can take
 
+### CAN UPDATE FULL CODE IF YOU AGREE WITH PURPOSED CHANGES
+#updated states to reflect multistate model structure should include
+#PRE → M1 (Benicia to Rio Vista) → 
+#  Junction 1 (Georgiana decision):
+#    → G1 (Georgiana Slough) → G2 (Georgiana rejoins mainstem at M4)
+#    → M2 (continue mainstem to SR_MOUTH) →
+#        Junction 2 (SS decision):
+#          → SS1 → SS2 → SS3 → M4 (SS rejoins mainstem)
+#          → M3 (continue mainstem, skips SS)
+# → M4 (all routes rejoined, Sacramento city area) →
+# → M5 (upper Sacramento) →
+# → SG (spawning grounds)
+
+
 #state transition parameters (routing, survival, migration failure)
 psi_geo = 0.106 # probability of routing through Georgiana Slough
 psi_ss = 0.346 #probability of routing through Sutter/Steambat
